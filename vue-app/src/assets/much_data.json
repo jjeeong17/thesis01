@@ -1,0 +1,74 @@
+[
+  {
+    "ingredient": "Acetaminophen",
+    "outer": 3000,
+    "outer_pill": 6,
+    "inner": "1000",
+    "inner_pill": "2",
+    "per_pill": 500,
+    "Hours": "6"
+  },
+  {
+    "ingredient": "Ibuprofen",
+    "outer": 1200,
+    "outer_pill": 6,
+    "inner": "200-400",
+    "inner_pill": "2",
+    "per_pill": 200,
+    "Hours": "4-6"
+  },
+  {
+    "ingredient": "Aspirin",
+    "outer": 3900,
+    "outer_pill": 12,
+    "inner": "325-650",
+    "inner_pill": "2",
+    "per_pill": 325,
+    "Hours": "4-6"
+  },
+  {
+    "ingredient": "Naproxen",
+    "outer": 660,
+    "outer_pill": 3,
+    "inner": "220",
+    "inner_pill": "1",
+    "per_pill": 220,
+    "Hours": "8-12"
+  },
+  {
+    "ingredient": "Diphenhydramine",
+    "outer": 300,
+    "outer_pill": 3,
+    "inner": "20-50",
+    "inner_pill": "2",
+    "per_pill": 25,
+    "Hours": "4-6"
+  },
+  {
+    "ingredient": "Dextromethorphan",
+    "outer": 120,
+    "outer_pill": 8,
+    "inner": "30",
+    "inner_pill": "2",
+    "per_pill": 15,
+    "Hours": "6-8"
+  },
+  {
+    "ingredient": "Phenylephrine",
+    "outer": 60,
+    "outer_pill": 6,
+    "inner": "10",
+    "inner_pill": "1",
+    "per_pill": 1,
+    "Hours": "4"
+  },
+  {
+    "ingredient": "Pseudoephedrine",
+    "outer": 2400,
+    "outer_pill": 8,
+    "inner": "60",
+    "inner_pill": "2",
+    "per_pill": 2,
+    "Hours": "4-6"
+  }
+]
