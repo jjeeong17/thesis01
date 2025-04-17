@@ -1,0 +1,776 @@
+[
+  {
+    "product_name": "Allegra Allergy 24 Hr Tablets",
+    "category": "Allergy",
+    "image": "allegra_allergy_24_hr_tablets.jpg",
+    "ingredients": [
+      {
+        "name": "Fexofenadine",
+        "amount": "180mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Astepro Allergy Nasal Spray",
+    "category": "Allergy",
+    "image": "astepro_allergy_nasal_spray.jpg",
+    "ingredients": [
+      {
+        "name": "Azelastine",
+        "amount": "205.5mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Benadryl Allergy Ultratabs",
+    "category": "Allergy, Cough",
+    "image": "benadryl_allergy_ultratabs.jpg",
+    "ingredients": [
+      {
+        "name": "Diphenhydramine",
+        "amount": "25mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Claritin Allergy 24 Hour",
+    "category": "Allergy",
+    "image": "claritin_allergy_24_hour.png",
+    "ingredients": [
+      {
+        "name": "Loratadine",
+        "amount": "10mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Xyzal Allergy 24 HR Tablets",
+    "category": "Allergy",
+    "image": "xyzal_allergy_24_hr_tablets.jpg",
+    "ingredients": [
+      {
+        "name": "Levocetirizine",
+        "amount": "5mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Zyrtec Allergy 10 mg Tablets",
+    "category": "Allergy",
+    "image": "zyrtec_allergy_10_mg_tablets.jpg",
+    "ingredients": [
+      {
+        "name": "Cetirizine",
+        "amount": "10mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Nasacort Allergy 24 Hr Spray",
+    "category": "Allergy",
+    "image": "nasacort_allergy_24_hr_spray.png",
+    "ingredients": [
+      {
+        "name": "Triamcinolone acetonide",
+        "amount": "50mcg"
+      }
+    ]
+  },
+  {
+    "product_name": "Flonase Allergy Symptom Reliever Nasal Spray",
+    "category": "Allergy",
+    "image": "flonase_allergy_symptom_reliever_nasal_spray.jpeg",
+    "ingredients": [
+      {
+        "name": "Fluticasone Propionate",
+        "amount": "50mcg"
+      }
+    ]
+  },
+  {
+    "product_name": "SUDAFED PE Tablets",
+    "category": "Cough",
+    "image": "sudafed_pe_tablets.jpeg",
+    "ingredients": [
+      {
+        "name": "Phenylephrine HCI",
+        "amount": "10mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Mucinex DM Max Strength 12 Hour Cough",
+    "category": "Cough",
+    "image": "mucinex_dm_max_strength_12_hour_cough.png",
+    "ingredients": [
+      {
+        "name": "Dextromethorphan",
+        "amount": "60mg"
+      },
+      {
+        "name": "Guaifenesin",
+        "amount": "1200mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Robitussin Adult Cough + Chest Congestion DM Liquid-Filled Capsules (Maximum Strength)",
+    "category": "Cough",
+    "image": "robitussin_adult_cough_chest_congestion_dm_liquid_filled_capsules_maximum_strength.jpg",
+    "ingredients": [
+      {
+        "name": "Dextromethorphan",
+        "amount": "10mg"
+      },
+      {
+        "name": "Guaifenesin",
+        "amount": "200mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Delsym 12 Hour Cough Relief Liquid",
+    "category": "Cough",
+    "image": "delsym_12_hour_cough_relief_liquid.png",
+    "ingredients": [
+      {
+        "name": "Dextromethorphan",
+        "amount": "30mg"
+      }
+    ]
+  },
+  {
+    "product_name": "NyQuil Severe VapoCool Cold & Flu Relief Liquid",
+    "category": "Cough, Pain, Fever",
+    "image": "nyquil_severe_vapocool_cold_flu_relief_liquid.gif",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "650mg"
+      },
+      {
+        "name": "Dextromethorphan",
+        "amount": "20mg"
+      },
+      {
+        "name": "Doxylamine",
+        "amount": "12.5mg"
+      },
+      {
+        "name": "Phenylephrine HCI",
+        "amount": "10mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Vicks DayQuil Cold & Flu Liquid",
+    "category": "Cough, Pain, Fever",
+    "image": "vicks_dayquil_cold_flu_liquid.gif",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "325mg"
+      },
+      {
+        "name": "Dextromethorphan",
+        "amount": "10mg"
+      },
+      {
+        "name": "Phenylephrine HCI",
+        "amount": "5mg"
+      }
+    ]
+  },
+  {
+    "product_name": "TUMS Extra Strength 750 Antacid Chewy Bites Assorted Berries",
+    "category": "Digestive",
+    "image": "tums_extra_strength_750_antacid_chewy_bites_assorted_berries.png",
+    "ingredients": [
+      {
+        "name": "Calcium Carbonate",
+        "amount": "750mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Mylanta Maximum Strength Liquid Smooth Creamy Taste",
+    "category": "Digestive",
+    "image": "mylanta_maximum_strength_liquid_smooth_creamy_taste.jpg",
+    "ingredients": [
+      {
+        "name": "Aluminum Hydroxide",
+        "amount": "800mg"
+      },
+      {
+        "name": "Magnesium Hydroxide",
+        "amount": "800mg"
+      },
+      {
+        "name": "Simethicone",
+        "amount": "80mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Alka-Seltzer Heartburn Relief Effervescent Tablets Extra Strength",
+    "category": "Digestive",
+    "image": "alka_seltzer_heartburn_relief_effervescent_tablets_extra_strength.jpg",
+    "ingredients": [
+      {
+        "name": "Anhydrous Citric Acid",
+        "amount": "1000mg"
+      },
+      {
+        "name": "Sodium Bicarbonate",
+        "amount": "1976mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Rolaids Ultra Strength Chewable Tablets",
+    "category": "Digestive",
+    "image": "rolaids_ultra_strength_chewable_tablets.jpg",
+    "ingredients": [
+      {
+        "name": "Calcium Carbonate",
+        "amount": "1000mg"
+      },
+      {
+        "name": "Magnesium Hydroxide",
+        "amount": "200mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Zantac 360 Maximum Strength",
+    "category": "Digestive",
+    "image": "zantac_360_maximum_strength.jpeg",
+    "ingredients": [
+      {
+        "name": "Famotidine",
+        "amount": "20mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Pepcid AC Tablets Maximum Strength",
+    "category": "Digestive",
+    "image": "pepcid_ac_tablets_maximum_strength.jpg",
+    "ingredients": [
+      {
+        "name": "Famotidine",
+        "amount": "20mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Nexium 24HR Capsules",
+    "category": "Digestive",
+    "image": "nexium_24hr_capsules.png",
+    "ingredients": [
+      {
+        "name": "Esomeprazole",
+        "amount": "20mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Prilosec OTC Tablets",
+    "category": "Digestive",
+    "image": "prilosec_otc_tablets.jpeg",
+    "ingredients": [
+      {
+        "name": "Omeprazole",
+        "amount": "20mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Gas-X Extra Strength Chewables",
+    "category": "Digestive",
+    "image": "gas_x_extra_strength_chewables.jpg",
+    "ingredients": [
+      {
+        "name": "Simethicone",
+        "amount": "125mg"
+      }
+    ]
+  },
+  {
+    "product_name": "TYLENOL Regular Strength Tablets",
+    "category": "Fever, Pain, Arthritis",
+    "image": "tylenol_regular_strength_tablets.jpeg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "325mg"
+      }
+    ]
+  },
+  {
+    "product_name": "TYLENOL PM Caplets",
+    "category": "Pain",
+    "image": "tylenol_pm_caplets.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "500mg"
+      },
+      {
+        "name": "Diphenhydramine",
+        "amount": "25mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Motrin PM Coated Caplets",
+    "category": "Pain",
+    "image": "motrin_pm_coated_caplets.jpg",
+    "ingredients": [
+      {
+        "name": "Diphenhydramine Citrate",
+        "amount": "38mg"
+      },
+      {
+        "name": "Ibuprofen",
+        "amount": "200mg"
+      },
+      {
+        "name": "Ibuprofen",
+        "amount": "200mg"
+      },
+      {
+        "name": "Diphenhydramine Citrate",
+        "amount": "38mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Motrin IB Coated Caplets",
+    "category": "Pain, Fever, Arthritis",
+    "image": "motrin_ib_coated_caplets.png",
+    "ingredients": [
+      {
+        "name": "Ibuprofen",
+        "amount": "200mg"
+      }
+    ]
+  },
+  {
+    "product_name": "TYLENOL Cold + Flu Severe",
+    "category": "Cough",
+    "image": "tylenol_cold_flu_severe.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "325mg"
+      },
+      {
+        "name": "Dextromethorphan",
+        "amount": "10mg"
+      },
+      {
+        "name": "Guaifenesin",
+        "amount": "200mg"
+      },
+      {
+        "name": "Phenylephrine HCl",
+        "amount": "5mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Advil PM Caplets",
+    "category": "Pain",
+    "image": "advil_pm_caplets.png",
+    "ingredients": [
+      {
+        "name": "Ibuprofen",
+        "amount": "200mg"
+      },
+      {
+        "name": "Diphenhydramine Citrate",
+        "amount": "38mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Bayer Genuine Aspirin",
+    "category": "Pain, Fever, Cough, Arthritis",
+    "image": "bayer_genuine_aspirin.jpg",
+    "ingredients": [
+      {
+        "name": "Aspirin",
+        "amount": "325mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Advil Ibuprofen 200 mg Coated Tablets",
+    "category": "Pain, Fever, Arthritis",
+    "image": "advil_ibuprofen_200_mg_coated_tablets.png",
+    "ingredients": [
+      {
+        "name": "Ibuprofen",
+        "amount": "200mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Aleve Pain Reliever/Fever Reducer Caplets",
+    "category": "Pain, Fever, Cough, Arthritis",
+    "image": "aleve_pain_reliever_fever_reducer_caplets.png",
+    "ingredients": [
+      {
+        "name": "Naproxen Sodium",
+        "amount": "220mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Goody's Headache Powder Stick Packets Extra Strength",
+    "category": "Pain, Cough, Arthritis",
+    "image": "goodys_headache_powder_stick_packets_extra_strength.png",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "260mg"
+      },
+      {
+        "name": "Aspirin",
+        "amount": "520mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "32.5mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Excedrin Extra Strength",
+    "category": "Pain",
+    "image": "excedrin_extra_strength.png",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "250mg"
+      },
+      {
+        "name": "Aspirin",
+        "amount": "250mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "65mg"
+      }
+    ]
+  },
+  {
+    "product_name": "BC Aspirin Powder Stick Packs",
+    "category": "Pain, Cough, Arthritis",
+    "image": "bc_aspirin_powder_stick_packs.jpg",
+    "ingredients": [
+      {
+        "name": "Aspirin",
+        "amount": "845mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "65mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Midol Complete Caplets",
+    "category": "Pain",
+    "image": "midol_complete_caplets.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "500mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "60mg"
+      },
+      {
+        "name": "Pyrilamine Maleat",
+        "amount": "15mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Excedrin Migraine Relief Caplets",
+    "category": "Pain",
+    "image": "excedrin_migraine_relief_caplets.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "250mg"
+      },
+      {
+        "name": "Aspirin",
+        "amount": "250mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "65mg"
+      }
+    ]
+  },
+  {
+    "product_name": "BC Arthritis Fast Pain Relief Powder Packs",
+    "category": "Pain",
+    "image": "bc_arthritis_fast_pain_relief_powder_packs.jpg",
+    "ingredients": [
+      {
+        "name": "Aspirin",
+        "amount": "1000mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "65mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Bayer Back & Body",
+    "category": "Pain",
+    "image": "bayer_back_body.jpg",
+    "ingredients": [
+      {
+        "name": "Aspirin",
+        "amount": "500mg"
+      },
+      {
+        "name": "Caffeine",
+        "amount": "32.5mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Aspercreme with Lidocaine Pain Relieving Creme",
+    "category": "Pain",
+    "image": "aspercreme_with_lidocaine_pain_relieving_creme.png",
+    "ingredients": [
+      {
+        "name": "Lidocaine",
+        "amount": "4%"
+      }
+    ]
+  },
+  {
+    "product_name": "Salonpas Pain Relieving Patches",
+    "category": "Pain, Arthritis",
+    "image": "salonpas_pain_relieving_patches.jpg",
+    "ingredients": [
+      {
+        "name": "Camphor",
+        "amount": "3.1%"
+      },
+      {
+        "name": "Menthol",
+        "amount": "6%"
+      },
+      {
+        "name": "Methyl Salicylate",
+        "amount": "10%"
+      }
+    ]
+  },
+  {
+    "product_name": "Salonpas Lidocaine 4% Pain Relieving Gel-Patches Maximum Strength",
+    "category": "Pain",
+    "image": "salonpas_lidocaine_4_pain_relieving_gel_patches_maximum_strength.jpg",
+    "ingredients": [
+      {
+        "name": "Lidocaine",
+        "amount": "4%"
+      }
+    ]
+  },
+  {
+    "product_name": "Voltaren Arthritis Pain Topical Gel",
+    "category": "Pain, Arthritis",
+    "image": "voltaren_arthritis_pain_topical_gel.jpeg",
+    "ingredients": [
+      {
+        "name": "Diclofenac Sodium",
+        "amount": "1%"
+      }
+    ]
+  },
+  {
+    "product_name": "BENGAY Ultra Strength Topical Analgesic Cream",
+    "category": "Pain, Arthritis",
+    "image": "bengay_ultra_strength_topical_analgesic_cream.jpg",
+    "ingredients": [
+      {
+        "name": "Camphor",
+        "amount": "4%"
+      },
+      {
+        "name": "Menthol",
+        "amount": "10%"
+      },
+      {
+        "name": "Methyl Salicylate",
+        "amount": "30%"
+      }
+    ]
+  },
+  {
+    "product_name": "Biofreeze Cold Therapy Pain Relief Gel",
+    "category": "Pain, Arthritis",
+    "image": "biofreeze_cold_therapy_pain_relief_gel.jpg",
+    "ingredients": [
+      {
+        "name": "Menthol",
+        "amount": "4%"
+      }
+    ]
+  },
+  {
+    "product_name": "Advil Dual Action with Acetaminophen",
+    "category": "Pain, Arthritis",
+    "image": "advil_dual_action_with_acetaminophen.jpeg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "250mg"
+      },
+      {
+        "name": "Ibuprofen",
+        "amount": "125mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Ecotrin 81 mg Low Strength Tablets",
+    "category": "Pain",
+    "image": "ecotrin_81_mg_low_strength_tablets.png",
+    "ingredients": [
+      {
+        "name": "Aspirin",
+        "amount": "81mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Excedrin PM",
+    "category": "Pain",
+    "image": "excedrin_pm.png",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "250mg"
+      },
+      {
+        "name": "Aspirin",
+        "amount": "250mg"
+      },
+      {
+        "name": "Diphenhydramine citrate",
+        "amount": "38mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Pamprin Multi-Symptom Caplets",
+    "category": "Pain",
+    "image": "pamprin_multi_symptom_caplets.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "500mg"
+      },
+      {
+        "name": "Pamabrom",
+        "amount": "25mg"
+      },
+      {
+        "name": "Pyrilamine Maleate",
+        "amount": "15mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Percogesic Backache Relief Pain Reliever Maximum Strength",
+    "category": "Pain",
+    "image": "percogesic_backache_relief_pain_reliever_maximum_strength.png",
+    "ingredients": [
+      {
+        "name": "Magnesium Salicylate ",
+        "amount": "580mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Chloraseptic Max Strength Sore Throat Lozenges",
+    "category": "Cough",
+    "image": "chloraseptic_max_strength_sore_throat_lozenges.png",
+    "ingredients": [
+      {
+        "name": "Benzocaine",
+        "amount": "15mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Theraflu Flu Relief Max Strength Daytime and Nighttime Flu Medicine Bundle Caplets",
+    "category": "Pain, Fever, Cough",
+    "image": "theraflu_flu_relief_max_strength_daytime_and_nighttime_flu_medicine_bundle_caplets.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "500mg"
+      },
+      {
+        "name": "Dextromethorphan HBR",
+        "amount": "15mg"
+      },
+      {
+        "name": "Chlorpheniramine Maleate",
+        "amount": "2mg"
+      }
+    ]
+  },
+  {
+    "product_name": "TYLENOL Cold + Flu Severe for Day and Night Time",
+    "category": "Cough",
+    "image": "tylenol_cold_flu_severe_for_day_night.jpg",
+    "ingredients": [
+      {
+        "name": "Acetaminophen",
+        "amount": "325mg"
+      },
+      {
+        "name": "Dextromethorphan HBR",
+        "amount": "10mg"
+      },
+      {
+        "name": "Phenylephrine HCI",
+        "amount": "5mg"
+      },
+      {
+        "name": "Guaifenesin",
+        "amount": "200mg"
+      },
+      {
+        "name": "Chlorpheniramine Maleate",
+        "amount": "2mg"
+      }
+    ]
+  },
+  {
+    "product_name": "Afrin Nasal Spray",
+    "category": "Allergy, Cough",
+    "image": "afrin_nasal_spray.png",
+    "ingredients": [
+      {
+        "name": "Oxymetazoline Hydrochloride",
+        "amount": "0.05%"
+      }
+    ]
+  }
+]

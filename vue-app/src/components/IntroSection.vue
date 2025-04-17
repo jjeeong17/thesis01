@@ -88,6 +88,8 @@ export default {
   top: -26%;
   left: -23%;
   z-index: 2;
+  animation: blink 1.2s ease-in-out infinite;
+  opacity: 1;
 }
 
 /* 👇 오른쪽 캐비넷 */
@@ -106,6 +108,8 @@ export default {
   top: -26%;
   left: 47%;
   z-index: 2;
+  animation: blink 1.2s ease-in-out infinite;
+  opacity: 1;
 }
 
 /* 텍스트 스타일 */
@@ -124,6 +128,7 @@ export default {
   padding: 1.6px 5px;
   display: inline-block;
   transition: all 0.5s ease;
+  animation: blinkText 1.4s ease-in-out infinite;
 }
 
 .activeRed {
@@ -132,6 +137,7 @@ export default {
   padding: 1.6px 5px;
   display: inline-block;
   transition: all 0.5s ease;
+  animation: blinkText 1.4s ease-in-out infinite;
 }
 
 /* 애니메이션 */
@@ -147,6 +153,15 @@ export default {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes blinkText {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
   }
 }
 </style>
