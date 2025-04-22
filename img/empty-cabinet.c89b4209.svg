@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2122.92 2934.42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #eae7e5;
+      }
+
+      .cls-2 {
+        fill: #aaa19b;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        fill: #c4bcb7;
+      }
+
+      .cls-5 {
+        fill: #d8d7d6;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1061.46" y1="3241.2" x2="1061.46" y2="290" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eae7e5"/>
+      <stop offset="1" stop-color="#aaa19b"/>
+    </linearGradient>
+  </defs>
+  <g id="shelves">
+    <g>
+      <rect class="cls-1" x="79.76" y="185.68" width="1963.39" height="2748.74"/>
+      <rect class="cls-3" x="154.27" y="259.31" width="1814.38" height="2601.49"/>
+      <path class="cls-2" d="M154.27,1146.12v148.56h1814.15v-148.56H154.27ZM154.27,2190.41h1808.01v-148.56H154.27v148.56Z"/>
+      <g>
+        <rect class="cls-5" x="153.39" y="1078.25" width="1816.14" height="85.9"/>
+        <rect class="cls-5" x="153.39" y="1955.95" width="1816.14" height="85.9"/>
+      </g>
+      <rect class="cls-4" x="73.63" y="116.58" width="1975.66" height="79.76"/>
+      <polygon class="cls-1" points="2063.28 141.12 65.59 134.98 0 0 2122.92 0 2063.28 141.12"/>
+    </g>
+  </g>
+</svg>
