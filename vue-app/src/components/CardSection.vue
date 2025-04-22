@@ -1,5 +1,5 @@
 <template>
-  <section class="card-section">
+  <section class="card-section" id="card">
     <h2 class="title">What's Really Inside?</h2>
 
     <!-- 필터 버튼 -->

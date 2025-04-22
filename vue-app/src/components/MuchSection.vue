@@ -1,5 +1,5 @@
 <template>
-  <section class="much-section">
+  <section class="much-section" id="much">
     <h2 class="title">How Much is Too Much?</h2>
 
     <!-- ↓↓ Legend Section -->

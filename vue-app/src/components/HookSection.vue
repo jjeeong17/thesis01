@@ -1,5 +1,5 @@
 <template>
-  <section class="hook-section">
+  <section class="hook-section" id="hook">
     <!-- 떨어지는 알약들 -->
     <div class="pills-wrapper">
       <img

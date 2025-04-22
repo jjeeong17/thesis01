@@ -1,5 +1,5 @@
 <template>
-  <section class="intro-section">
+  <section class="intro-section" id="intro">
     <div class="intro-layout">
       <!-- 왼쪽 캐비넷 -->
       <div class="cabinet-wrapper">

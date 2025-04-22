@@ -1,5 +1,5 @@
 <template>
-  <section class="combo-section">
+  <section class="combo-section" id="combo">
     <h2 class="title">Try your Combo</h2>
 
     <div class="card-grid">

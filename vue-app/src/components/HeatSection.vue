@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="heat-section" id="heat">
     <!-- 🔹 성분 리스트 -->
     <div class="ingredient-list">
       <div
@@ -179,7 +179,7 @@ export default {
 </script>
 
 <style scoped>
-.section {
+.heat-section {
   font-family: "kigelia-lgc", sans-serif;
   height: 100vh;
   scroll-snap-align: start;

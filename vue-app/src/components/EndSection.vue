@@ -1,5 +1,5 @@
 <template>
-  <section class="end-section">
+  <section class="end-section" id="end">
     <h2 class="title">
       Check the ingredients,<br />
       not just the brand
