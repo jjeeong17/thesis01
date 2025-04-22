@@ -1,90 +1,111 @@
 <template>
   <section class="combo-section">
-    <h2 class="section-title">Try Your Combo</h2>
+    <h2 class="title">Try your Combo</h2>
+
     <div class="card-grid">
       <div
-        v-for="item in data"
+        v-for="item in products"
         :key="item.product_name"
         class="card"
-        :class="{ selected: isSelected(item) }"
-        @click="toggleSelect(item)"
+        :class="{ selected: selectedItems.includes(item) }"
+        @click="selectItem(item)"
       >
-        <img :src="getImage(item.image)" class="card-image" />
+        <img
+          class="card-img"
+          :src="require(`@/assets/otc/${item.image}`)"
+          :alt="item.product_name"
+        />
       </div>
     </div>
 
-    <!-- 결과 메시지 -->
-    <div class="result-box" v-if="selected.length > 0">
-      <p v-if="overlapping.length > 0">
-        <span v-if="selected.length === 2">
-          ⚠️ "{{ overlapping.join(", ") }}" appears in both medications
-        </span>
-        <span v-else>
-          🚫 "{{ overlapping.join(", ") }}" appears in all selected medications
-        </span>
-      </p>
-      <p v-else class="safe">✅ No overlapping ingredients</p>
-    </div>
+    <!-- 경고 메시지 -->
+    <div class="warning-box">
+      <template v-if="selectedItems.length === 0 || selectedItems.length === 1">
+        <span class="icon">💡</span>You can select up to 3 medications.
+      </template>
 
-    <!-- 선택 제한 경고 -->
-    <p class="limit-warning" v-if="limitReached">
-      ⚠️ You can only select up to 3 medications
-    </p>
+      <template v-else-if="selectedItems.length > 3">
+        <span class="icon">❗</span>You can only select up to 3 medications.
+      </template>
+
+      <template v-else-if="sharedIngredients.length === 0">
+        <span class="icon">✅</span>No shared ingredients among selected
+        medications.
+      </template>
+
+      <template v-else>
+        <template v-if="allShare">
+          <span class="icon">⚠️</span>All selected medications contain “{{
+            sharedIngredients.join(", ")
+          }}”.
+        </template>
+        <template v-else-if="partialShareCount > 1">
+          <span class="icon">⚠️</span>“{{ sharedIngredients.join(", ") }}” is
+          shared by {{ partialShareCount }} out of
+          {{ selectedItems.length }} selected medications.
+        </template>
+        <template v-else>
+          <span class="icon">⚠️</span>All selected medications contain “{{
+            sharedIngredients.join(", ")
+          }}”.
+        </template>
+      </template>
+    </div>
   </section>
 </template>
 
 <script>
-import data from "@/assets/otc_data.json";
+import otcData from "@/assets/data/otc_data1.json";
 
 export default {
-  name: "TryComboSection",
+  name: "ComboSection",
   data() {
     return {
-      data,
-      selected: [],
-      limitReached: false,
+      products: otcData,
+      selectedItems: [],
     };
   },
   computed: {
-    overlapping() {
-      const all = this.selected.flatMap((item) =>
-        item.ingredients.map((ing) => ing.name.trim())
+    sharedIngredients() {
+      if (this.selectedItems.length < 2) return [];
+      const allIngredients = this.selectedItems.map((item) =>
+        item.ingredients.map((i) => i.name)
       );
 
-      const countMap = {};
-      for (let ing of all) {
-        countMap[ing] = (countMap[ing] || 0) + 1;
-      }
+      // 공통된 성분 추출
+      return allIngredients.reduce((a, b) => a.filter((i) => b.includes(i)));
+    },
+    allShare() {
+      if (this.sharedIngredients.length === 0) return false;
+      return this.sharedIngredients.every((ing) =>
+        this.selectedItems.every((item) =>
+          item.ingredients.some((i) => i.name === ing)
+        )
+      );
+    },
+    partialShareCount() {
+      const ing = this.sharedIngredients;
+      const selected = this.selectedItems;
 
-      return Object.entries(countMap)
-        .filter(([, count]) => count > 1)
-        .map(([ing]) => ing);
+      // sharedIngredient가 있는 item 수
+      const countMap = ing.map(
+        (sharedIng) =>
+          selected.filter((item) =>
+            item.ingredients.some((i) => i.name === sharedIng)
+          ).length
+      );
+
+      // 가장 많이 겹치는 성분이 몇 개의 약에서 나타나는지
+      return Math.max(...countMap);
     },
   },
-
   methods: {
-    getImage(fileName) {
-      return require(`@/assets/otc/${fileName}`);
-    },
-    isSelected(item) {
-      return this.selected.some(
-        (sel) => sel.product_name === item.product_name
-      );
-    },
-    toggleSelect(item) {
-      const index = this.selected.findIndex(
-        (sel) => sel.product_name === item.product_name
-      );
-      if (index > -1) {
-        this.selected.splice(index, 1);
-        this.limitReached = false;
+    selectItem(item) {
+      const index = this.selectedItems.indexOf(item);
+      if (index !== -1) {
+        this.selectedItems.splice(index, 1);
       } else {
-        if (this.selected.length >= 3) {
-          this.limitReached = true;
-          return;
-        }
-        this.selected.push(item);
-        this.limitReached = false;
+        this.selectedItems.push(item);
       }
     },
   },
@@ -94,78 +115,88 @@ export default {
 <style scoped>
 .combo-section {
   min-height: 100vh;
+  padding: 40px 20px;
+  background-color: white;
+  text-align: center;
   scroll-snap-align: start;
-  padding: 40px;
-  background-color: #fff;
-  box-sizing: border-box;
 }
 
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #222;
+.title {
+  font-size: 55px;
+  margin-bottom: 30px;
+  color: black;
+  text-align: left;
+  margin-left: 70px;
+  font-family: "kigelia-lgc", sans-serif;
 }
 
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  max-height: 500px;
-  overflow-y: auto;
   justify-content: center;
+  gap: 20px;
 }
 
 .card {
-  width: 160px;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  padding: 5px;
-  background-color: #f9f9f9;
+  width: 200px;
+  height: 250px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s, border-color 0.3s;
+  box-sizing: border-box;
 }
 
 .card:hover {
-  border-color: #aaa;
+  transform: scale(1.05);
 }
 
 .card.selected {
-  border-color: #453f8b;
-  box-shadow: 0 0 0 3px rgba(69, 63, 139, 0.2);
+  border-color: #b22223;
+  border-width: 3px;
 }
 
-.card-image {
+.card-img {
   width: 100%;
-  display: block;
-  border-radius: 6px;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.result-box {
-  margin: 30px auto 40px; /* 가운데 정렬 + 위아래 여백 */
-  padding: 15px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  width: 95%;
-  max-width: 1200px;
-  text-align: center;
-  font-size: 1rem;
+.warning-box {
+  position: sticky;
+  bottom: 20px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 14px;
+  padding: 15px 40px; /* 👉 더 넓고 높게 */
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 21px; /* 👉 글씨도 살짝 키움 */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  max-width: 55%; /* 👉 더 길게 */
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "kigelia-lgc", sans-serif;
+  z-index: 10;
+  line-height: 1.5; /* 👉 줄 간격 여유 있게 */
+  text-align: center; /* 👉 가운데 정렬 */
+}
+.icon {
+  margin-right: 10px;
 }
 
-.safe {
-  color: #2e7d32;
-  font-weight: 500;
-}
-
-.warning {
-  color: #c62828;
-  font-weight: 500;
-}
-
-.limit-warning {
-  margin-top: 10px;
-  color: #e65100;
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-align: center;
+.title {
+  font-size: 55px;
+  margin-bottom: 5px;
+  color: white;
+  text-align: left;
+  margin-left: 70px;
+  font-family: "kigelia-lgc", sans-serif;
+  -webkit-text-stroke: 1px black;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
 }
 </style>

@@ -1,0 +1,10 @@
+{
+  "Acetaminophen": ["Allergy", "Arthritis", "Cough", "Fever", "Pain"],
+  "Diphenhydramine": ["Allergy", "Cough", "Pain"],
+  "Doxylamine": ["Allergy", "Cough", "Fever", "Pain"],
+  "Dextromethorphan": ["Allergy", "Cough", "Fever", "Pain"],
+  "Aspirin": ["Arthritis", "Cough", "Fever", "Pain"],
+  "Ibuprofen": ["Allergy", "Arthritis", "Fever", "Pain"],
+  "Naproxen": ["Arthritis", "Cough", "Fever", "Pain"],
+  "Phenylephrine": ["Allergy", "Cough", "Fever", "Pain"]
+}

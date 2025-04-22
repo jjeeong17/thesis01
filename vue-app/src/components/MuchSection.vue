@@ -1,27 +1,38 @@
 <template>
   <section class="much-section">
-    <h2 class="section-title">Know Your Limit</h2>
+    <h2 class="title">How Much is Too Much?</h2>
+
+    <!-- ↓↓ Legend Section -->
+    <div class="pill-legend">
+      <ul>
+        <li><strong>Top-right number:</strong> max daily dose (mg)</li>
+        <li><span class="pill filled legend-pill"></span> = pills per dose</li>
+        <li><span class="pill legend-pill"></span> = daily max pills</li>
+        <li><strong>HR</strong> = time between doses (hours)</li>
+      </ul>
+    </div>
+
     <div class="pill-grid">
       <div v-for="item in data" :key="item.ingredient" class="pill-visual">
         <div class="pill-card">
+          <div class="max-label">{{ item.day_max }}mg</div>
+
           <div class="pill-background">
             <div
-              v-for="n in item.outer_pill"
+              v-for="n in item.day_pill"
               :key="n"
               class="pill"
-              :class="{ filled: n <= item.inner_pill }"
+              :class="{ filled: n <= item.one_pill }"
             >
-              <div class="tooltip">
-                <template v-if="n <= item.inner_pill">
-                  {{ item.per_pill }}mg
-                </template>
-                <template v-else> {{ item.outer }}mg (max/day) </template>
+              <div class="tooltip" v-if="n <= item.one_pill">
+                {{ item.per_pill }}mg
               </div>
             </div>
           </div>
-          <p class="hours-text">Interval: {{ item.Hours }} hr</p>
         </div>
+
         <p class="ingredient-name">{{ item.ingredient }}</p>
+        <p class="hours-text">{{ item.hours }}HR</p>
       </div>
     </div>
   </section>
@@ -42,60 +53,115 @@ export default {
 
 <style scoped>
 .much-section {
+  position: relative;
   min-height: 100vh;
   scroll-snap-align: start;
   background-color: #fefefe;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding-top: 330px;
   box-sizing: border-box;
 }
 
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #222;
+.title {
+  font-size: 60px;
+  margin-bottom: 5px;
+  color: white;
+  text-align: left;
+  margin-left: 70px;
+  font-family: "kigelia-lgc", sans-serif;
+  -webkit-text-stroke: 1px black;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+
+.pill-legend {
+  position: absolute;
+  top: 90px;
+  right: 80px;
+  padding: 16px 24px;
+  font-family: "kigelia-lgc", sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+  width: auto;
+  max-width: 300px;
+}
+
+.pill-legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pill-legend li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-pill {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.pill.filled.legend-pill {
+  background-color: #453f8b;
+  border: 2px solid white;
+}
+
+.pill.legend-pill {
+  background-color: #a7dcf3;
 }
 
 .pill-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  max-width: 1200px;
+  gap: 80px 140px;
+  max-width: 1300px;
   width: 100%;
 }
 
 .pill-visual {
-  text-align: center;
-  overflow: visible;
-}
-
-.ingredient-name {
-  font-weight: bold;
-  margin-top: 10px;
-  font-size: 1.1rem;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .pill-card {
   background-color: #7bbec4;
   padding: 12px;
   border-radius: 20px;
-  display: inline-block;
+  margin-left: -65%;
+  width: 300px;
+  height: 180px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pill-background {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 6px;
-  justify-content: center;
-  margin-bottom: 6px;
+  column-gap: 6px;
+  row-gap: 0px;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .pill {
-  width: 24px;
-  height: 24px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background-color: #a7dcf3;
   position: relative;
@@ -110,13 +176,13 @@ export default {
 
 .tooltip {
   position: absolute;
-  top: -28px;
+  top: -26px;
   left: 50%;
   transform: translateX(-50%);
   background: #333;
   color: white;
   padding: 3px 6px;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 4px;
   opacity: 0;
   visibility: hidden;
@@ -124,6 +190,7 @@ export default {
   pointer-events: none;
   z-index: 10;
   transition: all 0.2s ease;
+  font-family: "kigelia-lgc", sans-serif;
 }
 
 .pill:hover .tooltip {
@@ -131,10 +198,34 @@ export default {
   visibility: visible;
 }
 
+.max-label {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: "kigelia-lgc", sans-serif;
+}
+
+.ingredient-name {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: -370px;
+  font-size: 25px;
+  text-align: center;
+  font-family: "kigelia-lgc", sans-serif;
+}
+
 .hours-text {
-  font-size: 0.85rem;
-  color: #111;
-  text-align: right;
-  margin: 0;
+  font-size: 15px;
+  color: #333;
+  text-align: left;
+  margin-top: -25%;
+  margin-left: 50px;
+  font-family: "kigelia-lgc", sans-serif;
 }
 </style>

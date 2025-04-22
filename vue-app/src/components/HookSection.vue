@@ -14,24 +14,24 @@
     <!-- 중앙 텍스트 박스 -->
     <div class="hook-box">
       <p>
-        <span class="highlight yellow">9</span> out of 10 Americans use OTC
-        medicines.
+        <span class="highlight red">9</span>
+        out of 10 Americans use OTC medicines.
       </p>
       <p>
-        <span class="highlight red">8</span> out of 10 self-treat — no doctor
-        involved.
+        <span class="highlight red">8</span>
+        out of 10 self-treat — without a doctor.
       </p>
       <p>
-        <span class="but">BUT,</span> many meds contain the same ingredients.
+        <span class="highlight orange">WHY?</span> Because we believe OTC drugs
+        are <strong>safe</strong>.
       </p>
       <p>
-        Taking too much can lead to <span class="highlight red">overdose</span>.
+        <span class="but">BUT,</span> many meds contain the
+        <span class="highlight orange">same</span> ingredient.
       </p>
       <p>
-        <span class="question"
-          >Do you ever read the
-          <span class="underline">Drug Facts label</span>?</span
-        >
+        Have you ever <span class="highlight yellow">checked</span> the
+        <strong>Drug Facts</strong> label before taking one?
       </p>
     </div>
   </section>
@@ -50,7 +50,7 @@ export default {
   methods: {
     randomStyle(index) {
       const spacing = 100 / 30;
-      const left = spacing * index + Math.random() * (spacing - 5); // 각 영역 안에서 약간의 무작위
+      const left = spacing * index + Math.random() * (spacing - 5);
       const delay = Math.random() * 3;
       return {
         left: `${left}%`,
@@ -70,6 +70,7 @@ export default {
   position: relative;
   background-color: white;
   scroll-snap-align: start;
+  font-family: "kigelia-lgc", sans-serif;
 }
 
 .pills-wrapper {
@@ -105,35 +106,38 @@ export default {
   width: 80%;
   max-width: 700px;
   background: white;
-  border: 1px solid #aaa;
+  border: 2px solid #aaa;
   padding: 30px 40px;
-  border-radius: 8px;
+  border-radius: 16px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #333;
+  line-height: 1.5;
 }
 
 /* 강조 텍스트 스타일 */
 .highlight {
-  font-size: 40px;
-  color: #f4b400;
   font-weight: bold;
 }
 
 .highlight.red {
-  color: #c33131;
+  color: #b22223;
+  font-size: 2.7rem; /* 숫자 강조: 더 큼 */
 }
 
-.outline {
-  font-weight: bold;
-  -webkit-text-stroke: 1px #000;
-  color: white;
+.highlight.orange {
+  color: #f28719;
+  font-size: 1.9rem;
+}
+
+.highlight.yellow {
+  color: #e9bc19;
+  font-size: 1.9rem;
 }
 
 .but {
-  color: #c33131;
   font-weight: bold;
-  margin-right: 5px;
+  color: #000;
 }
 </style>

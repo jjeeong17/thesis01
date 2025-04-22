@@ -37,6 +37,12 @@
                 v-for="ing in item.ingredients"
                 :key="ing.name"
                 class="ingredient"
+                :style="{
+                  backgroundColor: ingredientColor(ing.name),
+                  color: '#fff',
+                  borderRadius: '5px',
+                  padding: '3px 6px',
+                }"
               >
                 {{ ing.name }}
               </li>
@@ -51,13 +57,102 @@
 <script>
 import otcData from "@/assets/data/otc_data1.json";
 
+const ingredientList = [
+  "Fexofenadine",
+  "Azelastine",
+  "Diphenhydramine",
+  "Loratadine",
+  "Levocetirizine",
+  "Cetirizine",
+  "Triamcinolone acetonide",
+  "Fluticasone Propionate",
+  "Phenylephrine",
+  "Dextromethorphan",
+  "Guaifenesin",
+  "Acetaminophen",
+  "Doxylamine",
+  "Calcium Carbonate",
+  "Aluminum Hydroxide",
+  "Magnesium Hydroxide",
+  "Simethicone",
+  "Anhydrous Citric Acid",
+  "Sodium Bicarbonate",
+  "Famotidine",
+  "Esomeprazole",
+  "Omeprazole",
+  "Ibuprofen",
+  "Aspirin",
+  "Naproxen Sodium",
+  "Caffeine",
+  "Pyrilamine Maleate",
+  "Lidocaine",
+  "Camphor",
+  "Menthol",
+  "Methyl Salicylate",
+  "Diclofenac Sodium",
+  "Pamabrom",
+  "Magnesium Salicylate",
+  "Benzocaine",
+  "Chlorpheniramine Maleate",
+  "Oxymetazoline Hydrochloride",
+  "Pseudoephedrine",
+];
+
+const customColors = [
+  "#ff0000",
+  "#7f0000",
+  "#ff8080",
+  "#bf8080",
+  "#ffbf00",
+  "#7f5f00",
+  "#ffdf80",
+  "#bfaf80",
+  "#80ff00",
+  "#407f00",
+  "#c0ff80",
+  "#a0bf80",
+  "#00ff40",
+  "#007f20",
+  "#80ffa0",
+  "#80bf90",
+  "#00ffff",
+  "#007f7f",
+  "#80ffff",
+  "#80bfbf",
+  "#0040ff",
+  "#00207f",
+  "#80a0ff",
+  "#8090bf",
+  "#8000ff",
+  "#40007f",
+  "#c080ff",
+  "#a080bf",
+  "#ff00bf",
+  "#7f005f",
+  "#ff80df",
+  "#bf80af",
+  "#6d6d6d",
+  "#929292",
+  "#b6b6b6",
+  "#dbdbdb",
+  "#494949",
+  "#854D6D",
+  "#E99881",
+];
+
+// ingredient → color 매핑 객체 만들기
+const ingredientToColor = {};
+ingredientList.forEach((name, index) => {
+  ingredientToColor[name] = customColors[index % customColors.length];
+});
+
 export default {
   name: "CardSection",
   data() {
     return {
       products: otcData,
       selectedCategory: "All",
-      flippedItems: [], // <-- 여러 개의 카드 상태를 저장
+      flippedItems: [],
     };
   },
   computed: {
@@ -78,15 +173,18 @@ export default {
   methods: {
     selectCategory(cat) {
       this.selectedCategory = cat;
-      this.flippedItems = []; // 필터 바꿀 때 모두 초기화
+      this.flippedItems = [];
     },
     flipCard(item) {
       const index = this.flippedItems.indexOf(item);
       if (index !== -1) {
-        this.flippedItems.splice(index, 1); // 다시 클릭하면 닫기
+        this.flippedItems.splice(index, 1);
       } else {
-        this.flippedItems.push(item); // 새로 열기
+        this.flippedItems.push(item);
       }
+    },
+    ingredientColor(name) {
+      return ingredientToColor[name] || "#ccc";
     },
   },
 };
@@ -94,7 +192,8 @@ export default {
 
 <style scoped>
 .card-section {
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
   scroll-snap-align: start;
   padding: 40px 20px;
   background-color: white;
@@ -102,23 +201,41 @@ export default {
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 55px;
+  margin-bottom: 5px;
+  color: white;
+  text-align: left;
+  margin-left: 70px;
+  font-family: "kigelia-lgc", sans-serif;
+  -webkit-text-stroke: 1px black;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 .filters {
   margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .filters button {
   margin: 5px;
-  padding: 8px 14px;
+  padding: 7px 14px;
   border: 1px solid black;
   background: none;
   font-weight: bold;
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
+  font-family: "kigelia-lgc", sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filters button.active {
@@ -135,9 +252,13 @@ export default {
 
 .card {
   width: 200px;
-  height: 180px;
+  height: 250px;
   perspective: 1000px;
   cursor: pointer;
+}
+
+.card:hover .card-inner {
+  transform: scale(1.05);
 }
 
 .card-inner {
@@ -161,16 +282,11 @@ export default {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .card-front {
   background: #fff;
-}
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .card-back {
@@ -182,14 +298,23 @@ export default {
   padding: 10px;
 }
 
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .ingredient-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 18px;
   color: #222;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
+  font-family: "kigelia-lgc", sans-serif;
 }
 
 .ingredient-list li {

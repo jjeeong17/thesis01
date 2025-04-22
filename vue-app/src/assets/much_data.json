@@ -1,74 +1,74 @@
 [
   {
     "ingredient": "Acetaminophen",
-    "outer": 3000,
-    "outer_pill": 6,
-    "inner": "1000",
-    "inner_pill": "2",
+    "day_max": 4000,
+    "one_max": 1000,
+    "hours": "4-6",
     "per_pill": 500,
-    "Hours": "6"
+    "day_pill": 8,
+    "one_pill": 2
   },
   {
     "ingredient": "Ibuprofen",
-    "outer": 1200,
-    "outer_pill": 6,
-    "inner": "200-400",
-    "inner_pill": "2",
+    "day_max": 1200,
+    "one_max": 400,
+    "hours": "4-6",
     "per_pill": 200,
-    "Hours": "4-6"
+    "day_pill": 6,
+    "one_pill": 2
   },
   {
     "ingredient": "Aspirin",
-    "outer": 3900,
-    "outer_pill": 12,
-    "inner": "325-650",
-    "inner_pill": "2",
+    "day_max": 3900,
+    "one_max": 650,
+    "hours": "4",
     "per_pill": 325,
-    "Hours": "4-6"
+    "day_pill": 12,
+    "one_pill": 2
   },
   {
     "ingredient": "Naproxen",
-    "outer": 660,
-    "outer_pill": 3,
-    "inner": "220",
-    "inner_pill": "1",
+    "day_max": 660,
+    "one_max": 220,
+    "hours": "8-12",
     "per_pill": 220,
-    "Hours": "8-12"
+    "day_pill": 3,
+    "one_pill": 1
   },
   {
     "ingredient": "Diphenhydramine",
-    "outer": 300,
-    "outer_pill": 3,
-    "inner": "20-50",
-    "inner_pill": "2",
+    "day_max": 300,
+    "one_max": 50,
+    "hours": "4-6",
     "per_pill": 25,
-    "Hours": "4-6"
+    "day_pill": 12,
+    "one_pill": 2
   },
   {
     "ingredient": "Dextromethorphan",
-    "outer": 120,
-    "outer_pill": 8,
-    "inner": "30",
-    "inner_pill": "2",
+    "day_max": 120,
+    "one_max": 30,
+    "hours": "6-8",
     "per_pill": 15,
-    "Hours": "6-8"
+    "day_pill": 8,
+    "one_pill": 2
   },
   {
     "ingredient": "Phenylephrine",
-    "outer": 60,
-    "outer_pill": 6,
-    "inner": "10",
-    "inner_pill": "1",
-    "per_pill": 1,
-    "Hours": "4"
+    "day_max": 60,
+    "one_max": 10,
+    "hours": "4",
+    "per_pill": 10,
+    "day_pill": 6,
+    "one_pill": 1
   },
   {
     "ingredient": "Pseudoephedrine",
-    "outer": 2400,
-    "outer_pill": 8,
-    "inner": "60",
-    "inner_pill": "2",
-    "per_pill": 2,
-    "Hours": "4-6"
+    "day_max": 240,
+    "one_max": 60,
+    "hours": "4-6",
+    "per_pill": 30,
+    "day_pill": 8,
+    "one_pill": 2
   }
 ]

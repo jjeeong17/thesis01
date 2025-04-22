@@ -17,8 +17,8 @@ import SectionNav from "./components/SectionNav.vue";
 import IntroSection from "./components/IntroSection.vue";
 import HookSection from "./components/HookSection.vue";
 import CardSection from "./components/CardSection.vue";
-import ComboSection from "./components/ComboSection.vue";
 import HeatSection from "./components/HeatSection.vue";
+import ComboSection from "./components/ComboSection.vue";
 import MuchSection from "./components/MuchSection.vue";
 import EndSection from "./components/EndSection.vue";
 

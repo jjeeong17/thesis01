@@ -19,13 +19,13 @@ export default {
   data() {
     return {
       sections: [
-        { name: "intro", label: "Intro" },
-        { name: "hook", label: "Hook" },
-        { name: "card", label: "Card" },
-        { name: "combo", label: "Combo" },
-        { name: "heat", label: "Heat" },
-        { name: "much", label: "Dosage" },
-        { name: "end", label: "End" },
+        { name: "intro", label: "Start" },
+        { name: "hook", label: "Problem" },
+        { name: "card", label: "Ingredients" },
+        { name: "heat", label: "Categories" },
+        { name: "combo", label: "Try" },
+        { name: "much", label: "Dosage Guide" },
+        { name: "end", label: "Label Check" },
       ],
     };
   },
@@ -43,6 +43,8 @@ export default {
   padding: 10px 20px;
   display: flex;
   justify-content: center;
+  font-family: "kigelia-lgc", sans-serif;
+  font-size: 20px;
 }
 .nav ul {
   display: flex;
