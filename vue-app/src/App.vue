@@ -5,8 +5,8 @@
     <IntroSection ref="intro" @enter="setCurrent('intro')" />
     <HookSection ref="hook" @enter="setCurrent('hook')" />
     <CardSection ref="card" @enter="setCurrent('card')" />
-    <ComboSection ref="combo" @enter="setCurrent('combo')" />
     <HeatSection ref="heat" @enter="setCurrent('heat')" />
+    <ComboSection ref="combo" @enter="setCurrent('combo')" />
     <MuchSection ref="much" @enter="setCurrent('much')" />
     <EndSection ref="end" @enter="setCurrent('end')" />
   </div>
