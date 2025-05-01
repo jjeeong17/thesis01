@@ -42,9 +42,25 @@ export default {
     };
   },
   mounted() {
+    // 1️⃣ 애니메이션
     setTimeout(() => {
       this.showMeds = true;
     }, 1500);
+
+    // 2️⃣ 현재 섹션 감지
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter"); // App.vue에서 setCurrent("intro") 호출됨
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(this.$el);
   },
 };
 </script>

@@ -31,6 +31,11 @@
         <!-- 사선 선 -->
         <div class="tooltip-line" :style="getLineStyle(point)"></div>
 
+        <div
+          class="highlight-box"
+          :style="getHighlightStyle(point.highlight)"
+        ></div>
+
         <!-- 툴팁 -->
         <div
           class="tooltip"
@@ -53,39 +58,44 @@ export default {
     return {
       points: [
         {
-          x: 240,
+          x: 130,
           y: 320,
           title: "Active Ingredient(s)",
           text: "The ingredient that makes the medicine work. Shows how much is in each dose.",
-          active: false,
+          active: true,
+          highlight: { top: 325, left: 170, width: 330, height: 48 },
         },
         {
-          x: 240,
-          y: 365,
+          x: 130,
+          y: 375,
           title: "Use(s)",
           text: "What symptoms or conditions the medicine helps with.",
           active: false,
+          highlight: { top: 380, left: 170, width: 620, height: 42 },
         },
         {
-          x: 240,
-          y: 410,
+          x: 130,
+          y: 430,
           title: "Warning(s)",
           text: "Who shouldn't take it, possible side effects, and when to talk to a doctor.",
           active: false,
+          highlight: { top: 430, left: 170, width: 635, height: 243 },
         },
         {
-          x: 240,
-          y: 570,
+          x: 130,
+          y: 680,
           title: "Directions",
-          text: "How much to take, how often, and for how long.",
+          text: "How much to take, how often,\nand for how long.",
           active: false,
+          highlight: { top: 680, left: 170, width: 630, height: 120 },
         },
         {
-          x: 730,
+          x: 840,
           y: 320,
           title: "Purpose(s)",
-          text: "What kind of medicine it is (like pain reliever or allergy medicine).",
+          text: "What kind of medicine it is \n(like pain reliever or allergy medicine).",
           active: false,
+          highlight: { top: 325, left: 718, width: 110, height: 40 },
         },
       ],
     };
@@ -97,23 +107,34 @@ export default {
   },
   methods: {
     togglePoint(index) {
-      this.points[index].active = !this.points[index].active;
+      this.points.forEach((p, i) => {
+        p.active = i === index ? !p.active : false;
+      });
     },
     getTooltipStyle(point) {
       const isLeft = point.x < 500;
-      const boxWidth = 240;
-      const offset = isLeft ? -boxWidth - 180 : 50;
+      const boxWidth = 300;
+      const offset = isLeft ? -boxWidth - 180 : 140;
       return {
-        top: point.y + 50 + "px", // 툴팁 더 아래로!
+        top: point.y + 50 + "px",
         left: point.x + offset + "px",
       };
     },
+    getHighlightStyle(highlight) {
+      return {
+        top: highlight.top + "px",
+        left: highlight.left + "px",
+        width: highlight.width + "px",
+        height: highlight.height + "px",
+      };
+    },
+
     getLineStyle(point) {
       const tooltipWidth = 240;
       const tooltipX =
-        point.x < 500 ? point.x - tooltipWidth - 180 : point.x + 50;
-      const tooltipY = point.y + 80; // 툴팁과 동일
-      const circleX = point.x + 10; // 원 중심
+        point.x < 500 ? point.x - tooltipWidth - 180 : point.x + 100;
+      const tooltipY = point.y + 80;
+      const circleX = point.x + 10;
       const circleY = point.y + 10;
 
       const dx = tooltipX + tooltipWidth / 2 - circleX;
@@ -129,6 +150,21 @@ export default {
         transformOrigin: "left center",
       };
     },
+  },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter");
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(this.$el);
   },
 };
 </script>
@@ -166,7 +202,7 @@ export default {
 }
 
 .facts-image {
-  width: 500px;
+  width: 680px;
   display: block;
   margin: 0 auto;
   margin-top: 95px;
@@ -174,8 +210,8 @@ export default {
 
 .click-circle {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background-color: white;
   border: 2px solid #cc0100;
@@ -199,21 +235,22 @@ export default {
   border: 2px solid #cc0100;
   padding: 10px 14px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 24px;
   font-family: "kigelia-lgc", sans-serif;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  max-width: 350px;
-  width: 350px;
+  max-width: 440px;
+  width: 430px;
   text-align: left;
   line-height: 1.5;
   z-index: 10;
+  white-space: pre-line;
 }
 
 .tooltip strong {
-  font-size: 22px;
+  font-size: 27px;
   font-weight: 800;
   display: block;
-  margin-bottom: -10px; /* 💡 간격 조절! */
+  margin-bottom: -15px; /* 💡 간격 조절! */
   font-family: "kigelia-lgc", sans-serif;
   line-height: 1; /* 선택적으로 더 조밀하게 */
 }
@@ -223,5 +260,13 @@ export default {
   height: 2px;
   background-color: #cc0100;
   z-index: 4;
+}
+
+.highlight-box {
+  position: absolute;
+  background-color: rgba(255, 255, 0, 0.31); /* 형광 노랑 투명 */
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 3;
 }
 </style>

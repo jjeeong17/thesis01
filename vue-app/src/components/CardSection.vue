@@ -155,6 +155,21 @@ export default {
       flippedItems: [],
     };
   },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter"); // App.vue로 전달
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(this.$el);
+  },
   computed: {
     categories() {
       const cats = new Set();
@@ -201,7 +216,7 @@ export default {
 }
 
 .title {
-  font-size: 55px;
+  font-size: 60px;
   margin-bottom: 5px;
   color: white;
   text-align: left;
@@ -230,7 +245,7 @@ export default {
   border-radius: 8px;
   transition: 0.3s;
   font-family: "kigelia-lgc", sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 1;
   height: 40px;
   display: flex;
@@ -310,7 +325,7 @@ export default {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #222;
   font-weight: bold;
   text-align: center;

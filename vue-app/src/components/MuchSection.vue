@@ -48,6 +48,21 @@ export default {
       data,
     };
   },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter");
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(this.$el);
+  },
 };
 </script>
 
@@ -82,13 +97,13 @@ export default {
 .pill-legend {
   position: absolute;
   top: 90px;
-  right: 80px;
-  padding: 16px 24px;
+  right: 15px;
+  padding: 10px 55px;
   font-family: "kigelia-lgc", sans-serif;
-  font-size: 0.95rem;
+  font-size: 22px;
   color: #333;
   width: auto;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .pill-legend ul {
@@ -123,23 +138,22 @@ export default {
 .pill-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 80px 140px;
+  gap: 80px 120px;
   max-width: 1300px;
   width: 100%;
 }
 
 .pill-visual {
   text-align: left;
-  padding-left: 20px;
 }
 
 .pill-card {
   background-color: #7bbec4;
   padding: 12px;
   border-radius: 20px;
-  margin-left: -65%;
-  width: 300px;
-  height: 180px;
+  margin-left: -60%;
+  width: 340px;
+  height: 220px;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -150,9 +164,10 @@ export default {
 .pill-background {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  column-gap: 6px;
-  row-gap: 0px;
+  grid-auto-rows: 36px; /* 알약보다 살짝 작은 높이 */
+  margin-top: 105px;
+  column-gap: 7px;
+  row-gap: 35px;
   justify-items: center;
   align-items: center;
   width: 100%;
@@ -160,8 +175,8 @@ export default {
 }
 
 .pill {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #a7dcf3;
   position: relative;
@@ -202,7 +217,7 @@ export default {
   position: absolute;
   top: 6px;
   right: 10px;
-  font-size: 0.75rem;
+  font-size: 15px;
   font-weight: bold;
   color: #fff;
   background: rgba(0, 0, 0, 0.4);
@@ -213,19 +228,19 @@ export default {
 
 .ingredient-name {
   font-weight: bold;
-  margin-top: 20px;
-  margin-left: -370px;
-  font-size: 25px;
+  margin-top: 27px;
+  margin-left: -410px;
+  font-size: 27px;
   text-align: center;
   font-family: "kigelia-lgc", sans-serif;
 }
 
 .hours-text {
-  font-size: 15px;
+  font-size: 20px;
   color: #333;
   text-align: left;
-  margin-top: -25%;
-  margin-left: 50px;
+  margin-top: -28%;
+  margin-left: 66px;
   font-family: "kigelia-lgc", sans-serif;
 }
 </style>

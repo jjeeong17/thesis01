@@ -30,7 +30,7 @@
 
     <!-- 🔹 경고 메시지 -->
     <div v-if="currentWarning" class="warning-box">
-      {{ currentWarning }}
+      <div class="warning-text">{{ currentWarning }}</div>
     </div>
   </section>
 </template>
@@ -44,38 +44,38 @@ export default {
   data() {
     return {
       width: 1850,
-      height: 1020,
+      height: 1055,
       ingredientMap,
       selectedIngredient: Object.keys(ingredientMap)[0],
       currentWarning: null,
       categories: ["Allergy", "Arthritis", "Cough", "Fever", "Pain"],
       colors: [
-        "#C71743",
-        "#CB3653",
-        "#E6495B",
-        "#EC6A6A",
+        "#db4666",
+        "#e85b75",
+        "#F37C89",
+        "#F69090",
         "#F09173",
         "#F5B677",
         "#F9D88A",
-        "#FCF7AB",
+        "#f7ec86",
       ],
       warnings: {
         Acetaminophen:
-          "One of the most common causes of liver damage and transplants in the U.S. — over 500 deaths a year, and half of overdoses happen by accident.",
+          "One of the most common causes of liver damage and transplants in the U.S.\nOver 500 deaths a year, and half of overdoses happen by accident.",
         Diphenhydramine:
-          "Known for causing drowsiness, but high doses can lead to irregular heartbeat or coma. Involved in 15% of fatal OTC overdoses.",
+          "Known for causing drowsiness, but high doses can lead to irregular heartbeat or coma.\nInvolved in 15% of fatal OTC overdoses.",
         Doxylamine:
           "A sleep aid that can cause muscle breakdown and kidney issues when taken in large amounts.",
         Dextromethorphan:
-          "A cough suppressant that can cause hallucinations and confusion if overused — often misused recreationally, especially by teens.",
+          "A cough suppressant that can cause hallucinations and confusion if overused —\noften misused recreationally, especially by teens.",
         Aspirin:
           "High doses can lead to stomach bleeding, hearing loss, and breathing problems.",
         Ibuprofen:
-          "Prolonged use may cause stomach ulcers or kidney damage. Overdosing can trigger headaches and dizziness.",
+          "Prolonged use may cause stomach ulcers or kidney damage.\nOverdosing can trigger headaches and dizziness.",
         Naproxen:
           "Works like ibuprofen, but long-term use can harm your stomach and increase the risk of heart issues.",
         Phenylephrine:
-          "Can raise blood pressure and cause sleep issues. Still found in many cold meds, even though its effectiveness is debated.",
+          "Can raise blood pressure and cause sleep issues.\nStill found in many cold meds, even though its effectiveness is debated.",
       },
     };
   },
@@ -92,6 +92,21 @@ export default {
   mounted() {
     this.drawChart();
     this.currentWarning = this.warnings[this.selectedIngredient] || null;
+
+    // 🔍 추가: 현재 섹션이 보이면 App.vue로 알려주기
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter"); // App.vue의 @enter="setCurrent('heat')" 호출됨
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5, // 절반 이상 보이면 감지
+      }
+    );
+
+    observer.observe(this.$el);
   },
   watch: {
     selectedIngredient() {
@@ -143,7 +158,7 @@ export default {
         .attr("y", textY)
         .text((d) => d)
         .style("text-anchor", "middle")
-        .style("font-size", "20px")
+        .style("font-size", "25px")
         .style("font-family", "kigelia-lgc, sans-serif")
         .style("font-weight", "600");
 
@@ -189,8 +204,8 @@ export default {
 
 .ingredient-list {
   position: absolute;
-  top: 24%; /* ⬆️ 더 아래로 */
-  left: 7%;
+  top: 22%; /* ⬆️ 더 아래로 */
+  left: 6%;
   display: flex;
   flex-direction: column;
   gap: 43px; /* ⬆️ 더 넓게 */
@@ -198,15 +213,18 @@ export default {
 
 .ingredient-item {
   font-family: "kigelia-lgc", sans-serif;
-  width: 200px; /* ⬆️ 더 길게 */
-  height: 45px; /* ⬆️ 더 크고 명확하게 */
+  width: 255px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font-size: 22px;
+  font-size: 28px;
   cursor: pointer;
   transition: all 0.2s ease;
+
+  color: white;
+  -webkit-text-stroke: 0.5px black;
 }
 
 .ingredient-item.active {
@@ -231,19 +249,22 @@ export default {
 
 .warning-box {
   position: absolute;
-  top: 45%;
-  left: 58%;
+  top: 48%;
+  left: 59%;
   transform: translate(-50%, -50%);
   background: white;
   border: 2px solid #333;
   border-radius: 12px;
-  padding: 20px 30px;
-  max-width: 660px;
-  font-size: 18px;
+  padding: 30px 20px;
+  width: 59vw;
+  font-size: 26px;
   line-height: 1.6;
   color: black;
   font-family: "kigelia-lgc", sans-serif;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+.warning-text {
+  white-space: pre-line;
 }
 </style>

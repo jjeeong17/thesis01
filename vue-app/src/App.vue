@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     setCurrent(sectionName) {
+      console.log("✅ currentSection set to:", sectionName);
       this.currentSection = sectionName;
     },
     scrollToSection(sectionName) {

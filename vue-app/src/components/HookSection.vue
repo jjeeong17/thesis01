@@ -47,6 +47,21 @@ export default {
       pillImg,
     };
   },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter");
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(this.$el);
+  },
   methods: {
     randomStyle(index) {
       const spacing = 100 / 30;
@@ -104,14 +119,14 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 80%;
-  max-width: 700px;
+  max-width: 950px;
   background: white;
   border: 2px solid #aaa;
   padding: 30px 40px;
   border-radius: 16px;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1.9rem;
+  font-weight: 500;
   color: #333;
   line-height: 1.5;
 }
@@ -123,21 +138,25 @@ export default {
 
 .highlight.red {
   color: #b22223;
-  font-size: 2.7rem; /* 숫자 강조: 더 큼 */
+  font-size: 3.2rem; /* 기존 2.7rem */
+  font-weight: 700;
 }
 
 .highlight.orange {
   color: #f28719;
-  font-size: 1.9rem;
+  font-size: 2.2rem; /* 기존 1.9rem */
+  font-weight: 700;
 }
 
 .highlight.yellow {
   color: #e9bc19;
-  font-size: 1.9rem;
+  font-size: 2.2rem; /* 기존 1.9rem */
+  font-weight: 700;
 }
 
 .but {
-  font-weight: bold;
+  font-weight: 700; /* 강조 더 강하게 */
   color: #000;
+  font-size: 1.9rem; /* 일반 텍스트보다 약간 큼 */
 }
 </style>

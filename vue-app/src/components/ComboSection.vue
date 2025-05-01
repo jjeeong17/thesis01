@@ -71,8 +71,6 @@ export default {
       const allIngredients = this.selectedItems.map((item) =>
         item.ingredients.map((i) => i.name)
       );
-
-      // 공통된 성분 추출
       return allIngredients.reduce((a, b) => a.filter((i) => b.includes(i)));
     },
     allShare() {
@@ -87,7 +85,6 @@ export default {
       const ing = this.sharedIngredients;
       const selected = this.selectedItems;
 
-      // sharedIngredient가 있는 item 수
       const countMap = ing.map(
         (sharedIng) =>
           selected.filter((item) =>
@@ -95,7 +92,6 @@ export default {
           ).length
       );
 
-      // 가장 많이 겹치는 성분이 몇 개의 약에서 나타나는지
       return Math.max(...countMap);
     },
   },
@@ -108,6 +104,21 @@ export default {
         this.selectedItems.push(item);
       }
     },
+  },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.$emit("enter");
+        }
+      },
+      {
+        root: null,
+        threshold: 0.5,
+      }
+    );
+
+    observer.observe(this.$el);
   },
 };
 </script>
@@ -174,7 +185,7 @@ export default {
   padding: 15px 40px; /* 👉 더 넓고 높게 */
   margin-top: 50px;
   font-weight: bold;
-  font-size: 21px; /* 👉 글씨도 살짝 키움 */
+  font-size: 25px; /* 👉 글씨도 살짝 키움 */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   max-width: 55%; /* 👉 더 길게 */
   margin-left: auto;
@@ -189,8 +200,8 @@ export default {
 }
 
 .title {
-  font-size: 55px;
-  margin-bottom: 5px;
+  font-size: 60px;
+  margin-bottom: 40px;
   color: white;
   text-align: left;
   margin-left: 70px;
