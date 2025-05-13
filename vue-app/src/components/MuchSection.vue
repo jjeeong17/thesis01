@@ -191,13 +191,13 @@ export default {
 
 .tooltip {
   position: absolute;
-  top: -26px;
+  top: -35px;
   left: 50%;
   transform: translateX(-50%);
   background: #333;
   color: white;
   padding: 3px 6px;
-  font-size: 11px;
+  font-size: 17px;
   border-radius: 4px;
   opacity: 0;
   visibility: hidden;
@@ -217,7 +217,8 @@ export default {
   position: absolute;
   top: 6px;
   right: 10px;
-  font-size: 15px;
+  font-size: 19px;
+  letter-spacing: 1.3px;
   font-weight: bold;
   color: #fff;
   background: rgba(0, 0, 0, 0.4);
@@ -236,11 +237,11 @@ export default {
 }
 
 .hours-text {
-  font-size: 20px;
+  font-size: 22px;
   color: #333;
   text-align: left;
   margin-top: -28%;
-  margin-left: 66px;
+  margin-left: 60px;
   font-family: "kigelia-lgc", sans-serif;
 }
 </style>

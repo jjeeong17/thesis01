@@ -224,7 +224,9 @@ export default {
   transition: all 0.2s ease;
 
   color: white;
-  -webkit-text-stroke: 0.5px black;
+
+  /* 더 얇고 은은한 그림자 */
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.4);
 }
 
 .ingredient-item.active {

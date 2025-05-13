@@ -34,12 +34,14 @@
           <div class="card-back">
             <ul class="ingredient-list">
               <li
-                v-for="ing in item.ingredients"
+                v-for="ing in item.ingredients
+                  .slice()
+                  .sort((a, b) => a.name.localeCompare(b.name))"
                 :key="ing.name"
                 class="ingredient"
                 :style="{
                   backgroundColor: ingredientColor(ing.name),
-                  color: '#fff',
+                  color: '#000',
                   borderRadius: '5px',
                   padding: '3px 6px',
                 }"
@@ -99,45 +101,45 @@ const ingredientList = [
 ];
 
 const customColors = [
-  "#ff0000",
-  "#7f0000",
-  "#ff8080",
-  "#bf8080",
-  "#ffbf00",
-  "#7f5f00",
-  "#ffdf80",
-  "#bfaf80",
-  "#80ff00",
-  "#407f00",
-  "#c0ff80",
-  "#a0bf80",
-  "#00ff40",
-  "#007f20",
-  "#80ffa0",
-  "#80bf90",
-  "#00ffff",
-  "#007f7f",
-  "#80ffff",
-  "#80bfbf",
-  "#0040ff",
-  "#00207f",
-  "#80a0ff",
-  "#8090bf",
-  "#8000ff",
-  "#40007f",
-  "#c080ff",
-  "#a080bf",
-  "#ff00bf",
-  "#7f005f",
-  "#ff80df",
-  "#bf80af",
-  "#6d6d6d",
-  "#929292",
-  "#b6b6b6",
-  "#dbdbdb",
-  "#494949",
-  "#854D6D",
-  "#E99881",
+  "#75C3B1",
+  "#B9E4D6",
+  "#C7E9E4",
+  "#E2ECE9",
+  "#E2F4FE",
+  "#C6E9FE",
+  "#9DD7FF",
+  "#7AC9FF",
+  "#869ACF",
+  "#C0C5E9",
+  "#7DCFD1",
+  "#ACE1E4",
+  "#C4F0F1",
+  "#D8AED4",
+  "#EBCAE7",
+  "#FFE1EB",
+  "#FFCCDA",
+  "#FEC3DA",
+  "#FFA8C0",
+  "#FD90AF",
+  "#FED2C7",
+  "#FFCDD3",
+  "#FFBEC3",
+  "#FFA2AB",
+  "#FF929F",
+  "#FFEAAB",
+  "#FFE3B1",
+  "#FFD17E",
+  "#FEBE8E",
+  "#FFA887",
+  "#D67B98",
+  "#6D7498",
+  "#2D6288",
+  "#397921",
+  "#706E1F",
+  "#23DED3",
+  "#FF8E77",
+  "#A6018A",
+  "#941C4C",
 ];
 
 // ingredient → color 매핑 객체 만들기
@@ -334,5 +336,10 @@ export default {
 
 .ingredient-list li {
   margin-bottom: 4px;
+  display: block;
+  width: 170px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 3px 6px;
 }
 </style>

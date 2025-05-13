@@ -1,14 +1,11 @@
 <template>
   <section class="end-section" id="end">
-    <h2 class="title">
-      Check the ingredients,<br />
-      not just the brand
-    </h2>
+    <h2 class="title">Check the ingredients, not just the brand</h2>
 
     <div class="facts-wrapper">
       <!-- 병 이미지 -->
       <img
-        src="@/assets/facts.svg"
+        src="@/assets/facts.gif"
         alt="Drug Facts Bottle"
         class="facts-image"
       />
@@ -58,44 +55,44 @@ export default {
     return {
       points: [
         {
-          x: 130,
-          y: 320,
+          x: 70,
+          y: 120,
           title: "Active Ingredient(s)",
           text: "The ingredient that makes the medicine work. Shows how much is in each dose.",
           active: true,
-          highlight: { top: 325, left: 170, width: 330, height: 48 },
+          highlight: { top: 113, left: 110, width: 400, height: 48 },
         },
         {
-          x: 130,
-          y: 375,
+          x: 70,
+          y: 180,
           title: "Use(s)",
           text: "What symptoms or conditions the medicine helps with.",
           active: false,
-          highlight: { top: 380, left: 170, width: 620, height: 42 },
+          highlight: { top: 175, left: 110, width: 780, height: 45 },
         },
         {
-          x: 130,
-          y: 430,
+          x: 70,
+          y: 250,
           title: "Warning(s)",
           text: "Who shouldn't take it, possible side effects, and when to talk to a doctor.",
           active: false,
-          highlight: { top: 430, left: 170, width: 635, height: 243 },
+          highlight: { top: 240, left: 110, width: 790, height: 320 },
         },
         {
-          x: 130,
-          y: 680,
+          x: 70,
+          y: 580,
           title: "Directions",
-          text: "How much to take, how often,\nand for how long.",
+          text: "How much to take, how often, and for how long.",
           active: false,
-          highlight: { top: 680, left: 170, width: 630, height: 120 },
+          highlight: { top: 570, left: 110, width: 790, height: 165 },
         },
         {
-          x: 840,
-          y: 320,
+          x: 900,
+          y: 120,
           title: "Purpose(s)",
           text: "What kind of medicine it is \n(like pain reliever or allergy medicine).",
           active: false,
-          highlight: { top: 325, left: 718, width: 110, height: 40 },
+          highlight: { top: 115, left: 780, width: 120, height: 45 },
         },
       ],
     };
@@ -114,7 +111,7 @@ export default {
     getTooltipStyle(point) {
       const isLeft = point.x < 500;
       const boxWidth = 300;
-      const offset = isLeft ? -boxWidth - 180 : 140;
+      const offset = isLeft ? -boxWidth - 140 : 50;
       return {
         top: point.y + 50 + "px",
         left: point.x + offset + "px",
@@ -132,7 +129,7 @@ export default {
     getLineStyle(point) {
       const tooltipWidth = 240;
       const tooltipX =
-        point.x < 500 ? point.x - tooltipWidth - 180 : point.x + 100;
+        point.x < 500 ? point.x - tooltipWidth - 140 : point.x + 50;
       const tooltipY = point.y + 80;
       const circleX = point.x + 10;
       const circleY = point.y + 10;
@@ -202,10 +199,9 @@ export default {
 }
 
 .facts-image {
-  width: 680px;
+  width: 900px;
   display: block;
-  margin: 0 auto;
-  margin-top: 95px;
+  margin: 125px auto 0;
 }
 
 .click-circle {
@@ -233,13 +229,13 @@ export default {
   position: absolute;
   background: white;
   border: 2px solid #cc0100;
-  padding: 10px 14px;
+  padding: 19px 6px;
   border-radius: 8px;
-  font-size: 24px;
+  font-size: 23px;
   font-family: "kigelia-lgc", sans-serif;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  max-width: 440px;
-  width: 430px;
+  max-width: 420px;
+  width: 410px;
   text-align: left;
   line-height: 1.5;
   z-index: 10;
@@ -247,7 +243,7 @@ export default {
 }
 
 .tooltip strong {
-  font-size: 27px;
+  font-size: 26px;
   font-weight: 800;
   display: block;
   margin-bottom: -15px; /* 💡 간격 조절! */

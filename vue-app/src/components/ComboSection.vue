@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <!-- 경고 메시지 -->
+    <!-- warning-message -->
     <div class="warning-box">
       <template v-if="selectedItems.length === 0 || selectedItems.length === 1">
         <span class="icon">💡</span>You can select up to 3 medications.
@@ -28,27 +28,28 @@
         <span class="icon">❗</span>You can only select up to 3 medications.
       </template>
 
-      <template v-else-if="sharedIngredients.length === 0">
+      <template v-else-if="frequentIngredients.length === 0">
         <span class="icon">✅</span>No shared ingredients among selected
         medications.
       </template>
 
       <template v-else>
-        <template v-if="allShare">
-          <span class="icon">⚠️</span>All selected medications contain “{{
-            sharedIngredients.join(", ")
-          }}”.
-        </template>
-        <template v-else-if="partialShareCount > 1">
-          <span class="icon">⚠️</span>“{{ sharedIngredients.join(", ") }}” is
-          shared by {{ partialShareCount }} out of
-          {{ selectedItems.length }} selected medications.
-        </template>
-        <template v-else>
-          <span class="icon">⚠️</span>All selected medications contain “{{
-            sharedIngredients.join(", ")
-          }}”.
-        </template>
+        <div v-for="(count, ing) in ingredientShareMap" :key="ing">
+          <span class="icon">⚠️</span>
+          <template v-if="selectedItems.length === 2 && count === 2">
+            {{ ing }} is found in both selected medications. Check the daily
+            limit for {{ ing }}.
+          </template>
+          <template v-else-if="selectedItems.length === 3 && count === 3">
+            {{ ing }} is found in all three selected medications. Check the
+            daily limit for {{ ing }}.
+          </template>
+          <template v-else>
+            {{ ing }} is found in {{ count }} of the
+            {{ selectedItems.length }} selected medications. Check the daily
+            limit for {{ ing }}.
+          </template>
+        </div>
       </template>
     </div>
   </section>
@@ -66,33 +67,38 @@ export default {
     };
   },
   computed: {
-    sharedIngredients() {
+    // 2개 이상에서 공유되는 성분 목록
+    frequentIngredients() {
       if (this.selectedItems.length < 2) return [];
-      const allIngredients = this.selectedItems.map((item) =>
-        item.ingredients.map((i) => i.name)
-      );
-      return allIngredients.reduce((a, b) => a.filter((i) => b.includes(i)));
+
+      const countMap = {};
+
+      this.selectedItems.forEach((item) => {
+        item.ingredients.forEach((i) => {
+          if (!countMap[i.name]) {
+            countMap[i.name] = 1;
+          } else {
+            countMap[i.name]++;
+          }
+        });
+      });
+
+      return Object.keys(countMap).filter((key) => countMap[key] >= 2);
     },
-    allShare() {
-      if (this.sharedIngredients.length === 0) return false;
-      return this.sharedIngredients.every((ing) =>
-        this.selectedItems.every((item) =>
+
+    // 성분별 포함된 약의 개수
+    ingredientShareMap() {
+      if (this.selectedItems.length < 2) return {};
+
+      const map = {};
+      this.frequentIngredients.forEach((ing) => {
+        const count = this.selectedItems.filter((item) =>
           item.ingredients.some((i) => i.name === ing)
-        )
-      );
-    },
-    partialShareCount() {
-      const ing = this.sharedIngredients;
-      const selected = this.selectedItems;
+        ).length;
+        map[ing] = count;
+      });
 
-      const countMap = ing.map(
-        (sharedIng) =>
-          selected.filter((item) =>
-            item.ingredients.some((i) => i.name === sharedIng)
-          ).length
-      );
-
-      return Math.max(...countMap);
+      return map;
     },
   },
   methods: {
@@ -133,12 +139,15 @@ export default {
 }
 
 .title {
-  font-size: 55px;
-  margin-bottom: 30px;
-  color: black;
+  font-size: 60px;
+  margin-bottom: 40px;
+  color: white;
   text-align: left;
   margin-left: 70px;
   font-family: "kigelia-lgc", sans-serif;
+  -webkit-text-stroke: 1px black;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 .card-grid {
@@ -182,32 +191,21 @@ export default {
   background: white;
   border: 2px solid #333;
   border-radius: 14px;
-  padding: 15px 40px; /* 👉 더 넓고 높게 */
+  padding: 15px 40px;
   margin-top: 50px;
   font-weight: bold;
-  font-size: 25px; /* 👉 글씨도 살짝 키움 */
+  font-size: 23px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  max-width: 55%; /* 👉 더 길게 */
+  max-width: 60%;
   margin-left: auto;
   margin-right: auto;
   font-family: "kigelia-lgc", sans-serif;
   z-index: 10;
-  line-height: 1.5; /* 👉 줄 간격 여유 있게 */
-  text-align: center; /* 👉 가운데 정렬 */
-}
-.icon {
-  margin-right: 10px;
+  line-height: 1.5;
+  text-align: center;
 }
 
-.title {
-  font-size: 60px;
-  margin-bottom: 40px;
-  color: white;
-  text-align: left;
-  margin-left: 70px;
-  font-family: "kigelia-lgc", sans-serif;
-  -webkit-text-stroke: 1px black;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
-    1px 1px 0 black;
+.icon {
+  margin-right: 10px;
 }
 </style>
